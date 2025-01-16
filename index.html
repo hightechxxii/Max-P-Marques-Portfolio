@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max P. Marques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif, 'Arial', 'Roboto';
+            color: #ffffff;
+            overflow-x: hidden;
+            background: url('https://cdn.wallpapersafari.com/84/22/Jz6bAs.gif') no-repeat center center fixed;
+            background-size: cover;
+            animation: backgroundAnimation 5s infinite linear;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 100%; }
+        }
+
+        header {
+            background-color: #001900;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 0 0 2px #00ff00, 0 0 5px #00ff00;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            color: #d3ffd3;
+        }
+
+        nav {
+            border-bottom: 4px solid #00ff00;
+            box-sizing: border-box;
+            display: flex;
+            padding: 2px;
+            justify-content: center;
+            background-color: #001900;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ffffff;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            transition: background-color 300ms ease, color 300ms ease;
+        }
+
+        nav a:hover {
+            background-color: #00ff00;
+            color: #000;
+        }
+
+        nav a:focus {
+            outline: 2px solid #ffcc00;
+            background-color: #00ff00;
+            color: #000;
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00ff00;
+            text-shadow: 0 0 3px rgba(0, 255, 0, 0.8), 0 0 5px rgba(0, 255, 0, 0.8), 0 0 8px rgba(0, 255, 0, 0.8);
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #0f0;
+            margin: 10px auto 0;
+        }
+
+        .container {
+            background-color: #001900;
+            padding: 40px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+        }
+
+        .container p {
+            font-size: 1.2rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
+        }
+
+        .container h2 {
+            font-size: 2.5rem;
+            color: #00ff00;
+            text-shadow: 0 0 5px rgba(0, 167, 0, 0.8), 0 0 7px rgba(0, 167, 0, 0.8), 0 0 9px rgba(0, 167, 0, 0.8);
+        }
+
+        .skills {
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            animation: fadeInSkills 1s ease-out;
+        }
+
+        .skills-info {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInSkills 1s ease-out 0.5s forwards;
+        }
+
+        .frontend, .backend, .hacking {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+            gap: 20px;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.15);
+        }
+
+        .skills i {
+            font-size: 5rem;
+            margin: 0 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: fadeInSkills 1s ease-out forwards;
+        }
+
+        .skills .html {
+            color: #ff7f00;
+        }
+
+        .skills .css {
+            color: #0073e6;
+        }
+
+        .skills .js {
+            color: #ffcc00;
+        }
+
+        .skills .python {
+            color: #003366;
+        }
+        .skills .bug {
+            color: #ff0000;
+        }
+        .skills .redhat {
+            color: #cc0000;
+        }
+        .skills .web-hacking {
+            color: #8a8a8a;
+        }
+
+        .skills .bug-hunter {
+            color: #2e4e1f;
+        }
+
+        .skills .ubuntu {
+            color: #e95420;
+        }
+
+        .skills .icon-hover:hover {
+            color: #00ff00;
+        }
+
+        .skill-item span {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #00ff00;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-item:hover span {
+            opacity: 1;
+        }
+
+        @keyframes fadeInSkills {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .download-cv button {
+            background-color: #00ff00;
+            color: #000;
+            border: 2px solid #00ff00;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .download-cv button:hover {
+            background-color: #000;
+            color: #00ff00;
+            transform: scale(1.1);
+        }
+
+        .back-to-top {
+            background-color: #00ff00;
+            color: #000;
+            border: 2px solid #00ff00;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: #000;
+            color: #00ff00;
+            transform: scale(1.1);
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #00ff00;
+            font-size: 1.2rem;
+            margin: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00cc00;
+        }
+
+        /* Estilo para el formulario de contacto */
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            background-color: #001900;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
+        }
+
+        #contact label {
+            font-size: 1.1rem;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        #contact input,
+        #contact textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #00ff00;
+            width: 100%;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        #contact input:focus,
+        #contact textarea:focus {
+            background-color: #001900;
+            color: #ffffff;
+            outline: none;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        #contact button[type="submit"] {
+            background-color: #00ff00;
+            color: #000;
+            border: 2px solid #00ff00;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        #contact button[type="submit"]:hover {
+            background-color: #000;
+            color: #00ff00;
+            transform: scale(1.1);
+        }
+
+        /* Estilo para las etiquetas <h3> en la sección de Projects */
+#certificates .certificate-item h3 {
+    color: #00ff00; /* Verde brillante que armoniza con la página */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.8), 0 0 8px rgba(0, 255, 0, 0.6);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el ratón sobre los títulos de los proyectos */
+#certificates .certificate-item h3:hover {
+    color: #00ff00; 
+    text-shadow: 0 0 5px #00ff00, 0 0 7px #00ff00; 
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Max P. Marques</h1>
+        <p>Welcome to my digital world</p>
+        
+    </header>
+    <nav class="navbar">
+        <a href="#about" aria-label="Go to about section">About</a>
+        <a href="#skills" aria-label="Go to skills section">Skills</a>
+        <a href="#certificates" aria-label="Go to certificates section">Certificates</a>
+        <a href="#contact" aria-label="Go to contact section">Contact</a>
+    </nav>
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I'm a dedicated and detail-oriented penetration tester with a strong focus on Web Hacking and Cybersecurity Audits. With over a year of hands-on experience, I bring expertise in identifying and exploiting web vulnerabilities, leveraging tools like Kali Linux and custom scripts developed in Python. Additionally, I have foundational skills in front-end technologies, including HTML, CSS, and JavaScript, which enhance my ability to understand and analyze web applications from a developer's perspective. Always eager to learn and adapt, I am passionate about delivering secure, high-quality solutions.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <p>My expertise includes a wide range of technologies and tools:</p>
+            <div class="skills">
+                <div class="frontend">
+                    <div class="skill-item">
+                        <i class="fab fa-html5 html icon-hover"></i>
+                        <span>HTML</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt css icon-hover"></i>
+                        <span>CSS</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js-square js icon-hover"></i>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="backend">
+                    <div class="skill-item">
+                        <i class="fab fa-python python icon-hover"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-linux ubuntu icon-hover"></i>
+                        <span>Linux</span>
+                    </div>
+                </div>
+                <div class="hacking">
+                    <div class="skill-item">
+                        <i class="fas fa-bug bug icon-hover"></i>
+                        <span>Bug Hunting</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-redhat redhat icon-hover"></i>
+                        <span>Red Hat</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-shield-alt web-hacking icon-hover"></i>
+                        <span>Web Hacking</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-user-secret bug-hunter icon-hover"></i>
+                        <span>Investigative Hacking</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates">
+        <div class="container">
+            <h2>Certificates</h2>
+            <p>Here are some of my certificates...</p>
+            
+            
+            <div class="certificate-item">
+                <h3>Advanced Cybersecurity Course</h3>
+                <p>2024</p>
+                <p>A comprehensive program covering key cybersecurity concepts, including threat analysis, penetration testing, ethical hacking, network security, and risk management. The course provided hands-on experience with modern tools and techniques used in the cybersecurity industry.</p>
+    
+            
+            <div class="certificate-item">
+                <h3>Intensive "Professional Hacker" Event</h3>
+                <p>2023</p>
+                <p>Participated in an exclusive, hands-on event. Gained in-depth knowledge of Information Security fundamentals and advanced hacking techniques, enhancing my skills in penetration testing, vulnerability assessment, and ethical hacking methodologies.</p>
+            </div>
+    
+           
+            <div class="certificate-item">
+                <h3>Advanced Offensive Security and Penetration Testing Training</h3>
+                <p>2022</p>
+                <p>Completed advanced training in Offensive Security and Penetration Testing, focusing on identifying and exploiting vulnerabilities in Web Applications, Computer Networks, and Internet of Things (IoT) systems. Gained hands-on expertise with Linux environments, Python programming fundamentals, and industry-standard penetration testing methodologies.</p>
+            </div>
+    
+            
+            <div class="certificate-item">
+                <h3>Android Hacking Pro</h3>
+                <p>2022</p>
+                <p>Completed specialized training in Offensive Security and Penetration Testing with a focus on the Android ecosystem. Learned to identify and exploit vulnerabilities in Web Applications, Computer Networks, and Internet of Things (IoT) devices, leveraging the Android platform for ethical hacking.</p>
+            </div>
+
+            <div class="download-cv">
+                <a href="CV-Max.pdf" download><button>Download CV</button></a>
+            </div>
+            
+        </div>
+    </section>
+    
+    
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you want to collaborate or ask questions, feel free to reach out!</p>
+            <form action="mailto:mpmebcn@gmail.com" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Max P. Marques. All rights reserved.</p>
+    </footer>
+</body>
+</html>
