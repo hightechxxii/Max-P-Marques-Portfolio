@@ -467,23 +467,34 @@
     
 
     <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p>If you want to collaborate or ask questions, feel free to reach out!</p>
-            <form action="mailto:mpmebcn@gmail.com" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Your email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
-                
-                <button type="submit">Send Message</button>
-            </form>
+    <div class="container">
+        <h2>Contact Me</h2>
+        <p>If you want to collaborate or ask questions, feel free to reach out!</p>
+        
+        <!-- Added social links -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/max-patrick-marques-ab4303347/" target="_blank" aria-label="LinkedIn Profile">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/hightechxxii" target="_blank" aria-label="GitHub Profile">
+                <i class="fab fa-github"></i> GitHub
+            </a>
         </div>
-    </section>
+        
+        <form action="mailto:mpmebcn@gmail.com" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
 
     <footer>
         <p>© 2025 Max P. Marques. All rights reserved.</p>
